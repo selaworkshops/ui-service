@@ -1,26 +1,106 @@
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<script src="services-controller.js"></script>
 
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="services-controller.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style>
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			width: 500px;
+			border: 1px solid #ddd;
+		}
+		
+		th, td {
+			text-align: center;
+			padding: 16px;
+		}
+		
+		tr:nth-child(even) {
+			background-color: #f2f2f2
+		}
+
+		.center-block {
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+		}
+		
+	</style>
+
+</head>
 <body>
 
-<div ng-app="services" ng-controller="operations">
+<div ng-app="services" ng-controller="operations" class="container col-sm-5">
 
-	<form name="myForm" ng-submit=calculate()>
-	  First Number:<br>
-	  <input type="number" name="number1" ng-model="number1" required><br>
+	<br>
 
-	  Second Number:<br>
-	  <input type="number" ng-model="number2" required><br><br>
-	  
-	  <button type="submit">Calculate</button>
-	</form>
+	<div class="media">
+		<div class="media-left media-middle">
+			<img src="sela.jpg" class="media-object" style="width:60px">
+		</div>
+		<div class="media-body media-middle">
+			<h2 class="media-heading" style="font-weight: bold; text-align: center">Microservices Calculator App</h2>
+		</div>
+		</div>
+		<hr>
 
-	<p ng-hide="!sum.total && sum.total != 0">Sum: {{sum.total}}</p>
-	<p ng-hide="!substraction.total && substraction.total != 0">Substraction: {{substraction.total}}</p>
-	<p ng-hide="!multiplication.total && multiplication.total != 0">Multiplication: {{multiplication.total}}</p>
-	<p ng-hide="!division.total && division.total != 0">Division: {{division.total}}</p>
+	<br>
+	
+	<div class="row">
+		<form name="myForm" ng-submit=calculate() class="col-sm-12">
+
+		<div class="form-group">
+		<label>First Number:</label>
+		<input type="number" class="form-control" placeholder="enter a number" name="number1" ng-model="number1" onfocus="this.value=''" required>
+		</div>
+
+		<div class="form-group">
+		<label>Second Number:</label>
+		<input type="number" class="form-control" placeholder="enter a number" ng-model="number2" onfocus="this.value=''" required>
+		</div>
+
+		<br>
+
+		<button type="submit" class="btn btn-warning col-sm-12">Calculate</button>
+
+		</form>
+	</div>
+
+	<br><br>
+	
+	<div class="row">
+		<div class="table-responsive col-sm-12">
+			<table class="table" ng-hide="!sum.total && sum.total != 0 && !substraction.total && substraction.total != 0 && !multiplication.total && multiplication.total != 0 && !division.total && division.total != 0">
+				<tr>
+					<th>Operation</th>
+					<th>Result</th>
+				</tr>
+				<tr ng-hide="!sum.total && sum.total != 0">
+					<td>Sum</th>
+					<td>{{sum.total}}</th>
+				</tr>
+				<tr ng-hide="!substraction.total && substraction.total != 0">
+					<td>Substraction</td>
+					<td>{{substraction.total}}</td>
+				</tr>
+				<tr ng-hide="!multiplication.total && multiplication.total != 0">
+					<td>Multiplication</td>
+					<td>{{multiplication.total}}</td>
+				</tr>
+				<tr ng-hide="!division.total && division.total != 0">
+					<td>Division</td>
+					<td>{{division.total}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
 </div>
 
 </body>
