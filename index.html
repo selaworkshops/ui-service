@@ -7,13 +7,14 @@
 
 <div ng-app="services" ng-controller="operations">
 
-	<form novalidate>
+	<form name="myForm" ng-submit=calculate()>
 	  First Number:<br>
-	  <input type="text" ng-model="number1"><br>
+	  <input type="number" name="number1" ng-model="number1" required><br>
+
 	  Second Number:<br>
-	  <input type="text" ng-model="number2">
-	  <br><br>
-	  <button ng-click="calculate()">CALCULATE</button>
+	  <input type="number" ng-model="number2" required><br><br>
+	  
+	  <button type="submit">Calculate</button>
 	</form>
 
 	<p ng-hide="!sum.total && sum.total != 0">Sum: {{sum.total}}</p>
