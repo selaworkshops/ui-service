@@ -1,23 +1,28 @@
 angular.module('services', [])
 .controller('operations', function($scope, $http) {
-	
-	$http.get('http://localhost:3001/sum/11/15')
+    
+    $scope.calculate = function() {
+
+        $http.get("http://localhost:3001/sum/"+$scope.number1+"/"+$scope.number2)
 		.then(function(response) {
             $scope.sum = response.data;
         });
 	
-    $http.get('http://localhost:3002/substraction/11/15')
+        $http.get("http://localhost:3002/substraction/"+$scope.number1+"/"+$scope.number2)
 		.then(function(response) {
             $scope.substraction = response.data;
         });
 		
-	$http.get('http://localhost:3003/multiplication/11/15')
+	    $http.get("http://localhost:3003/multiplication/"+$scope.number1+"/"+$scope.number2)
 		.then(function(response) {
             $scope.multiplication = response.data;
         });
 		
-	$http.get('http://localhost:3004/division/11/15')
+	    $http.get("http://localhost:3004/division/"+$scope.number1+"/"+$scope.number2)
 		.then(function(response) {
             $scope.division = response.data;
         });
-})
+    }
+    
+    $scope.calculate();
+});

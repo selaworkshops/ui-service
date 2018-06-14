@@ -2,23 +2,24 @@
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script src="services-controller.js"></script>
+
 <body>
 
-<div ng-app="services">
- 
-<p>First Number: <input type="text" ng-model="number1"></p>
-<p>Second Number: <input type="text" ng-model="number2"></p>
+<div ng-app="services" ng-controller="operations">
 
-<p>First Number: {{ number1 }}</p>
-<p>Second Number: {{ number2 }}</p>
+	<form novalidate>
+	  First Number:<br>
+	  <input type="text" ng-model="number1"><br>
+	  Second Number:<br>
+	  <input type="text" ng-model="number2">
+	  <br><br>
+	  <button ng-click="calculate()">CALCULATE</button>
+	</form>
 
-<div ng-controller="operations">
-	<p>Sum: {{sum.total}}</p>
-	<p>Substraction: {{substraction.total}}</p>
-	<p>Multiplication: {{multiplication.total}}</p>
-	<p>Division: {{division.total}}</p>
-</div>
-		
+	<p ng-hide="!sum.total && sum.total != 0">Sum: {{sum.total}}</p>
+	<p ng-hide="!substraction.total && substraction.total != 0">Substraction: {{substraction.total}}</p>
+	<p ng-hide="!multiplication.total && multiplication.total != 0">Multiplication: {{multiplication.total}}</p>
+	<p ng-hide="!division.total && division.total != 0">Division: {{division.total}}</p>
 </div>
 
 </body>
