@@ -1,7 +1,7 @@
-FROM selaworkshops/alpine:3.4
-RUN apk-install python
-ENV port=3000
-ADD . /app/
-WORKDIR /app
-ENTRYPOINT python -m SimpleHTTPServer $port
-EXPOSE $port
+FROM node:10.4
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD [ "npm", "start" ]
