@@ -8,7 +8,7 @@ angular.module('services', [])
             $scope.sum = response.data;
         });
 	
-        $http.get("http://localhost:3002/substraction/"+$scope.number1+"/"+$scope.number2)
+        $http.get("http://localhost:3002/subtraction/"+$scope.number1+"/"+$scope.number2)
 		.then(function(response) {
             $scope.substraction = response.data;
         });
