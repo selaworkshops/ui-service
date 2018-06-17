@@ -10,7 +10,7 @@ angular.module('services', [])
 	
         $http.get("http://localhost:3002/subtraction/"+$scope.number1+"/"+$scope.number2)
 		.then(function(response) {
-            $scope.substraction = response.data;
+            $scope.subtraction = response.data;
         });
 		
 	    $http.get("http://localhost:3003/multiplication/"+$scope.number1+"/"+$scope.number2)
