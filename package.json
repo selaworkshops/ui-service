@@ -1,7 +1,7 @@
 {
   "name": "ui-service",
   "version": "1.0.0",
-  "description": "nodejs demo app",
+  "description": "ui-service",
   "main": "server.js",
   "scripts": {
     "test": "jasmine-node spec",
