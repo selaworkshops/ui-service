@@ -1,5 +1,5 @@
 {
-  "name": "app-service",
+  "name": "ui-service",
   "version": "1.0.0",
   "description": "nodejs demo app",
   "main": "server.js",
